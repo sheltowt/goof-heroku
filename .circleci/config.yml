@@ -16,6 +16,9 @@ jobs:
       - run:
           name: install npm
           command: npm install
+      - run:
+          name: enviro variables 
+          command: echo ${PRACTICE}     
       - snyk/scan:
           docker-image-name: 'circleci/node:4.8.2'
           fail-on-issues: false
