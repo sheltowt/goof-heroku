@@ -16,12 +16,11 @@ jobs:
       - run:
           name: install npm
           command: npm install
-      - run: 
-          name: "What branch am I on?"
-          command: echo ${CIRCLE_BRANCH}
-      - run:
-          name: "What was my custom environment variable?"
-          command: echo ${EXAMPLE}
+      - snyk/scan:
+          docker-image-name: 'circleci/node:4.8.2'
+          fail-on-issues: false
+          monitor-on-build: true
+          token-variable: SNYK_TOKEN
 workflows:
   version: 2
   my-workflow:
