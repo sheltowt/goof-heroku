@@ -16,6 +16,9 @@ jobs:
       - run:
           name: install npm
           command: npm install
+      - run: 
+          name: "What branch am I on?"
+          command: echo ${CIRCLE_BRANCH}
       - run:
           name: "What was my custom environment variable?"
           command: echo ${EXAMPLE}
