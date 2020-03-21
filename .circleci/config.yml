@@ -5,6 +5,7 @@ orbs:
   snyk: snyk/snyk@0.0.9
 # Orchestrate or schedule a set of jobs
 jobs:
+  context: sheltowt
   build:
     working_directory: ~/goof-heroku
     docker:
@@ -19,7 +20,7 @@ jobs:
           docker-image-name: 'circleci/node:4.8.2'
           fail-on-issues: false
           monitor-on-build: true
-          token-variable: SNYK_TOKEN
+          token-variable: AUTH_TOKEN
 workflows:
   version: 1
   build_and_test:
