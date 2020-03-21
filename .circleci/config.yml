@@ -23,7 +23,7 @@ jobs:
           docker-image-name: 'circleci/node:4.8.2'
           fail-on-issues: false
           monitor-on-build: true
-          token-variable: SNYK_TOKEN
+          token-variable: ${SNYK_TOKEN}
 workflows:
   version: 2
   my-workflow:
