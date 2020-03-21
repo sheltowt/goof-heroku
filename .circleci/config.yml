@@ -22,5 +22,11 @@ jobs:
       - run:
           name: "What was my custom environment variable?"
           command: echo ${EXAMPLE}
+workflows:
+  version: 2
+  my-workflow:
+    jobs:
+      - build:
+          context: org-global
 
 
