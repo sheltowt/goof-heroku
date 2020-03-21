@@ -2,8 +2,6 @@
 version: 2.1
 # Use a package of configuration called an orb.
 orbs:
-  # Declare a dependency on the welcome-orb
-  welcome: circleci/welcome-orb@0.4.1
   snyk: snyk/snyk@0.0.9
 # Orchestrate or schedule a set of jobs
 jobs:
@@ -17,6 +15,15 @@ jobs:
           name: Install npm
           command: npm install
       - run:
-          name: Install npm
+          name: Start service
           command: npm start
-      - snyk/scan
+      - snyk/scan:
+          docker-image-name: 'circleci/node:4.8.2'
+          monitor-on-build: true
+workflows:
+  version: 1
+  build_and_test:
+    jobs:
+      - build
+
+
