@@ -10,12 +10,13 @@ jobs:
   build:
     docker:
       - image: 'circleci/node:4.8.2'
+      - image: 'circleci/mongo:4.2'
     steps:
       - checkout
       - run:
           name: Install npm
           command: npm install
       - run:
-          name: Install npm wee
+          name: Install npm
           command: npm start
       - snyk/scan
