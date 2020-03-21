@@ -26,6 +26,6 @@ workflows:
   build_and_test:
     jobs:
       - build:
-        context: sheltowt
+        context: org-global
 
 
