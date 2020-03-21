@@ -6,20 +6,23 @@ orbs:
 # Orchestrate or schedule a set of jobs
 jobs:
   build:
+    working_directory: ~/goof-heroku
     docker:
       - image: 'circleci/node:4.8.2'
       - image: 'circleci/mongo:4.2'
     steps:
       - checkout
       - run:
-          name: Install npm
-          command: npm install
+          name: update-npm
+          command: 'sudo npm install -g npm@latest'
       - run:
-          name: Start service
-          command: npm start
+          name: Install npm
+          command: 'npm install'
       - snyk/scan:
           docker-image-name: 'circleci/node:4.8.2'
+          fail-on-issues: false
           monitor-on-build: true
+          token-variable: SNYK_TOKEN
 workflows:
   version: 1
   build_and_test:
