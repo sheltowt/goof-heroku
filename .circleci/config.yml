@@ -5,7 +5,6 @@ orbs:
   snyk: snyk/snyk@0.0.9
 # Orchestrate or schedule a set of jobs
 jobs:
-  context: sheltowt
   build:
     working_directory: ~/goof-heroku
     docker:
@@ -26,6 +25,7 @@ workflows:
   version: 1
   build_and_test:
     jobs:
-      - build
+      - build:
+        context: sheltowt
 
 
