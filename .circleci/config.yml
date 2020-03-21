@@ -6,6 +6,7 @@ orbs:
 # Orchestrate or schedule a set of jobs
 jobs:
   build:
+    context: org-global
     working_directory: ~/goof-heroku
     docker:
       - image: 'circleci/node:4.8.2'
@@ -21,11 +22,5 @@ jobs:
       - run:
           name: "What was my custom environment variable?"
           command: echo ${EXAMPLE}
-workflows:
-  version: 1
-  build_and_test:
-    jobs:
-      - build:
-        context: org-global
 
 
