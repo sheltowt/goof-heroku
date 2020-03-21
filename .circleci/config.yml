@@ -17,7 +17,7 @@ jobs:
           name: install npm
           command: npm install  
       - snyk/scan:
-          docker-image-name: 'circleci/node:4.8.2'
+          project: '${CIRCLE_PROJECT_REPONAME}/${CIRCLE_BRANCH}-app'
           fail-on-issues: false
           monitor-on-build: true
           token-variable: SNYK_AUTH
