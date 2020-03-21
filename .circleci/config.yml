@@ -17,7 +17,7 @@ jobs:
           command: 'sudo npm install -g npm@latest'
       - run:
           name: Install npm
-          command: 'npm install'
+          command: npm install
       - snyk/scan:
           docker-image-name: 'circleci/node:4.8.2'
           fail-on-issues: false
