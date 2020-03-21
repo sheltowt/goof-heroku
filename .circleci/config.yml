@@ -11,4 +11,8 @@ workflows:
   welcome:
     # Run the welcome/run job in its own container
     jobs:
-      - welcome/run
+      build:
+        steps:
+          - run: npm install
+          - run: npm start
+          - snyk/scan
