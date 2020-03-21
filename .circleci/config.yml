@@ -5,13 +5,14 @@ orbs:
   snyk: snyk/snyk@0.0.9
 # Orchestrate or schedule a set of jobs
 jobs:
+  context: sheltowt
   build:
     working_directory: ~/goof-heroku
     docker:
       - image: 'circleci/node:4.8.2'
       - image: 'circleci/mongo:4.2'
+        SNYK_TOKEN: CICD_SNYK_TOKEN
     steps:
-      context: sheltowt
       - checkout
       - run:
           name: install npm
