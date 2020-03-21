@@ -19,6 +19,11 @@ jobs:
           fail-on-issues: false
           monitor-on-build: true
           token-variable: SNYK_AUTH
+      - snyk/scan:
+          project: '${CIRCLE_PROJECT_REPONAME}/${CIRCLE_BRANCH}-container'
+          fail-on-issues: false
+          monitor-on-build: true
+          token-variable: SNYK_AUTH
 workflows:
   version: 2
   my-workflow:
