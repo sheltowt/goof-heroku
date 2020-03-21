@@ -5,8 +5,8 @@ orbs:
   snyk: snyk/snyk@0.0.9
 # Orchestrate or schedule a set of jobs
 jobs:
+  context: org-global
   build:
-    context: org-global
     working_directory: ~/goof-heroku
     docker:
       - image: 'circleci/node:4.8.2'
