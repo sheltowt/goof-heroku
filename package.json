@@ -10,9 +10,7 @@
   "scripts": {
     "start": "node app.js",
     "cleanup": "mongo express-todo --eval 'db.todos.remove({});'",
-    "test": "snyk test",
-    "snyk-protect": "snyk protect",
-    "prepublish": "npm run snyk-protect"
+    "test": "snyk test"
   },
   "dependencies": {
     "body-parser": "^1.17.1",
